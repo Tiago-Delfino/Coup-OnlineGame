@@ -1,0 +1,14 @@
+D:\UnityProjects\UnityProjectCoup\Scripts\GameCoup\bin\Debug\netcoreapp3.1\GameCoup.exe
+D:\UnityProjects\UnityProjectCoup\Scripts\GameCoup\bin\Debug\netcoreapp3.1\GameCoup.deps.json
+D:\UnityProjects\UnityProjectCoup\Scripts\GameCoup\bin\Debug\netcoreapp3.1\GameCoup.runtimeconfig.json
+D:\UnityProjects\UnityProjectCoup\Scripts\GameCoup\bin\Debug\netcoreapp3.1\GameCoup.runtimeconfig.dev.json
+D:\UnityProjects\UnityProjectCoup\Scripts\GameCoup\bin\Debug\netcoreapp3.1\GameCoup.dll
+D:\UnityProjects\UnityProjectCoup\Scripts\GameCoup\bin\Debug\netcoreapp3.1\GameCoup.pdb
+D:\UnityProjects\UnityProjectCoup\Scripts\GameCoup\obj\Debug\netcoreapp3.1\GameCoup.csproj.AssemblyReference.cache
+D:\UnityProjects\UnityProjectCoup\Scripts\GameCoup\obj\Debug\netcoreapp3.1\GameCoup.GeneratedMSBuildEditorConfig.editorconfig
+D:\UnityProjects\UnityProjectCoup\Scripts\GameCoup\obj\Debug\netcoreapp3.1\GameCoup.AssemblyInfoInputs.cache
+D:\UnityProjects\UnityProjectCoup\Scripts\GameCoup\obj\Debug\netcoreapp3.1\GameCoup.AssemblyInfo.cs
+D:\UnityProjects\UnityProjectCoup\Scripts\GameCoup\obj\Debug\netcoreapp3.1\GameCoup.csproj.CoreCompileInputs.cache
+D:\UnityProjects\UnityProjectCoup\Scripts\GameCoup\obj\Debug\netcoreapp3.1\GameCoup.dll
+D:\UnityProjects\UnityProjectCoup\Scripts\GameCoup\obj\Debug\netcoreapp3.1\GameCoup.pdb
+D:\UnityProjects\UnityProjectCoup\Scripts\GameCoup\obj\Debug\netcoreapp3.1\GameCoup.genruntimeconfig.cache
