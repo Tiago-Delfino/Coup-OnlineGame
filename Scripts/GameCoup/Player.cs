@@ -8,6 +8,7 @@ namespace GameCoup
     {
         public string Nickname { get; private set; }
         public int Coins;
+        public bool isAlive;
         public List<string> cards = new List<string>();
         //public bool Religion;
         public Player(string nickname)
@@ -19,5 +20,16 @@ namespace GameCoup
         {
             Nickname = nickname;
         } 
+
+        public void AddCoins(int quantity)
+        {
+            Coins += quantity;
+        } 
+
+        public void Income()
+        {
+            AddCoins(1);
+        }
+        
     }
 }
