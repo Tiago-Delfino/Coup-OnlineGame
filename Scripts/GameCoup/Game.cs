@@ -26,7 +26,7 @@ namespace GameCoup
             for (int i = 0; i < CharacterRepetition; i++)
             {
                 deck.Add("Doke");
-                deck.Add("Assasin");
+                deck.Add("Assassin");
                 deck.Add("Captain");
                 deck.Add("Ambassador");
                 deck.Add("Contessa");
@@ -112,16 +112,24 @@ namespace GameCoup
 
         public void DealCards()
         {
-
+            ShuffleDeck();
             for (int i = 0; i < players.Count; i++)
             {
                 for (int j = 0; j < InitialHand; j++)
                 {
-
-                    int randonInteger = rng.Next(0, deck.Count);
-                    players[i].cards.Add(deck[randonInteger]);
-                    deck.RemoveAt(randonInteger);
+                    players[i].cards.Add(deck[0]);
+                    deck.RemoveAt(0);
                 }
+            }
+        }
+
+        public void DrawCard(int quantity, Player player)
+        {     
+            ShuffleDeck();
+            for (int i = 0; i < quantity; i++)
+            {
+                player.cards.Add(deck[0]);
+                deck.RemoveAt(0);
             }
         }
 
@@ -134,10 +142,15 @@ namespace GameCoup
                 {
                     Console.Write(players[i].cards[j] + " ");
                 }
+                for (int j = 0; j < players[i].revealedCards.Count; j++)
+                {
+                    Console.Write("*" + players[i].revealedCards[j] + "* ");
+                }
                 Console.Write(players[i].Coins);
                 Console.WriteLine("----------------");
             }
         }
+
         public void PrintDeck()
         {
             for (int i = 0; i < deck.Count; i++)
@@ -145,31 +158,6 @@ namespace GameCoup
                 Console.Write(deck[i] + " ");
             }
             Console.WriteLine();
-        }
-
-        public void Income(Player player)
-        {
-            Console.WriteLine("O jogador " + player.Nickname + " comprou uma moeda.");
-            player.AddCoins(1);
-        }
-
-        public void ForeignAid(Player player)
-        {
-            Console.WriteLine("O jogador " + player.Nickname + " quer ajuda externa.");
-            Console.WriteLine("Quem vai bloquear?");
-            string blocker = Console.ReadLine();
-
-            if (blocker == "")
-            {
-                Console.WriteLine("O jogador " + player.Nickname + " comprou duas moedas.");
-                player.AddCoins(2);
-            }
-            else
-            {
-                Player claimer = GetPlayer(blocker);
-                Challenge(claimer,"Doke");
-            }
-            
         }
 
         public Player GetPlayer(string nickname)
@@ -185,39 +173,147 @@ namespace GameCoup
             return null;
         }
 
-        public void Challenge(Player claimer, string ClaimedCard)
+        public void Income(Player player)
         {
-            Console.WriteLine("O jogador " + claimer.Nickname + " diz ser " + ClaimedCard + ".");
-            Console.WriteLine("Quem vai duvidar?");
-            string challenger = Console.ReadLine();
+            Console.WriteLine("O jogador " + player.Nickname + " comprou uma moeda.");
+            player.AddCoins(1);
+        }
 
-            if (challenger == "")
+        public void ForeignAid(Player player)
+        {
+            Console.WriteLine("O jogador " + player.Nickname + " quer ajuda externa.");
+            Console.WriteLine("Quem vai bloquear?");
+            string blocker = Console.ReadLine();
+            bool success;
+
+            if (blocker == "")
             {
-                Console.WriteLine("Ninguém desafiou.");
+                Console.WriteLine("O jogador " + player.Nickname + " comprou duas moedas.");
+                player.AddCoins(2);
             }
             else
             {
-                Console.WriteLine(challenger + "desafiou.");
-                Console.WriteLine(claimer.Nickname + "deve revelar uma carta.");
-                string ReveleadCard = Console.ReadLine();
-                if (ReveleadCard == ClaimedCard)
+                Player claimer = GetPlayer(blocker);
+                Player challenger = AskForChallenger(claimer, "Doke");
+                if(challenger != null)
                 {
-                    Console.WriteLine(challenger + " errou ao duvidar e deve descartar uma carta.");
-                    Player loser = GetPlayer(challenger);
-                    string DiscardedCard = Console.ReadLine();
-                    loser.cards.Remove(DiscardedCard);
-                    deck.Add(DiscardedCard);
-                    ShuffleDeck();
+                    success = Challenge(claimer, challenger, "Doke");
                 }
                 else
                 {
-                    Console.WriteLine(claimer.Nickname + "mentiu e perdeu sua carta.");
-                    claimer.cards.Remove(ReveleadCard);
-                    deck.Add(ReveleadCard);
-                    ShuffleDeck();
-                    
+                    success = true;
+                }
+                if(success)
+                {
+                    player.AddCoins(2);
                 }
             }
+            
+        }
+
+        public void AssassinAction(Player player)
+        {
+            Console.WriteLine("Quem será o alvo?");
+            Player target = GetPlayer(Console.ReadLine());
+            player.AddCoins(-3);
+            Console.WriteLine("O jogador " + player.Nickname + " quer assassinar " + target.Nickname + ".");
+            Player challenger = AskForChallenger(player, "Assassin");
+            bool success;
+            if(challenger != null)
+            {
+                success = Challenge(player, challenger, "Assassin");
+            }
+            else
+            {
+                success = false;
+            }
+            if(!success)
+            {
+                Console.WriteLine("O jogador alvejado é a Condessa?");
+                string contessa = Console.ReadLine();
+                if(contessa == "n")
+                {
+                    Console.WriteLine(target.Nickname + " deve escolher uma carta para perder.");
+                    string lostCard = Console.ReadLine();
+                    target.loseCard(lostCard);
+                    target.placeTable(lostCard);
+                }
+                else
+                {
+                    challenger = AskForChallenger(target, "Contessa");
+                    if(challenger != null)
+                    {
+                        success = Challenge(target, challenger, "Contessa");
+                    }
+                    else
+                    {
+                        success = false;
+                    }
+                    if(success)
+                    {
+                        Console.WriteLine(target.Nickname + " deve escolher uma carta para perder.");
+                        string lostCard = Console.ReadLine();
+                        target.loseCard(lostCard);
+                        target.placeTable(lostCard);
+                    }
+                }
+            }
+        }
+
+        public void DokeAction(Player player)
+        {
+            Player challenger = AskForChallenger(player, "Doke");
+            bool success;
+            if(challenger != null)
+            {
+                success = Challenge(player, challenger, "Doke");
+            }
+            else
+            {
+                success = false;
+            }
+            if(!success)
+            {
+                player.AddCoins(3);
+            }
+        }
+
+        public Player AskForChallenger(Player claimer, string claimedCard)
+        {
+            Console.WriteLine("O jogador " + claimer.Nickname + " diz ser " + claimedCard + ".");
+            Console.WriteLine("Quem vai duvidar?");
+            string challenger = Console.ReadLine();
+            if(challenger == "")
+            {
+                Console.WriteLine("Ninguém desafiou.");
+                return null;
+            }
+            return GetPlayer(challenger);
+        }
+
+        public bool Challenge(Player claimer, Player challenger, string ClaimedCard)
+        {
+            Console.WriteLine(challenger.Nickname + " desafiou.");
+            Console.WriteLine(claimer.Nickname + " deve revelar uma carta.");
+            string RevealedCard = Console.ReadLine();
+            if (RevealedCard == ClaimedCard)
+            {
+                Console.WriteLine(challenger.Nickname + " errou ao duvidar e deve descartar uma carta.");
+                string DiscardedCard = Console.ReadLine();
+                challenger.loseCard(DiscardedCard);
+                challenger.placeTable(DiscardedCard);
+                claimer.loseCard(RevealedCard);
+                deck.Add(RevealedCard);
+                DrawCard(1, claimer);
+                return false;
+            }
+            else
+            {
+                Console.WriteLine(claimer.Nickname + " mentiu e perdeu sua carta.");
+                claimer.loseCard(RevealedCard);
+                claimer.placeTable(RevealedCard);
+            }
+            return true;
         }
 
         public void resolve(Player subject, string action)
@@ -229,6 +325,14 @@ namespace GameCoup
             else if (action == "aid")
             {
                 ForeignAid(subject);
+            }
+            else if (action == "tax")
+            {
+                DokeAction(subject);
+            }
+            else if (action == "ass")
+            {
+                AssassinAction(subject);
             }
         }
     }

@@ -25,3 +25,16 @@ C:\Users\thiag\Documents\GitHub\Coup-OnlineGame\Scripts\GameCoup\obj\Debug\netco
 C:\Users\thiag\Documents\GitHub\Coup-OnlineGame\Scripts\GameCoup\obj\Debug\netcoreapp3.1\GameCoup.dll
 C:\Users\thiag\Documents\GitHub\Coup-OnlineGame\Scripts\GameCoup\obj\Debug\netcoreapp3.1\GameCoup.pdb
 C:\Users\thiag\Documents\GitHub\Coup-OnlineGame\Scripts\GameCoup\obj\Debug\netcoreapp3.1\GameCoup.genruntimeconfig.cache
+C:\Users\user\Documents\GitHub\Coup-OnlineGame\Scripts\GameCoup\bin\Debug\netcoreapp3.1\GameCoup.exe
+C:\Users\user\Documents\GitHub\Coup-OnlineGame\Scripts\GameCoup\bin\Debug\netcoreapp3.1\GameCoup.deps.json
+C:\Users\user\Documents\GitHub\Coup-OnlineGame\Scripts\GameCoup\bin\Debug\netcoreapp3.1\GameCoup.runtimeconfig.json
+C:\Users\user\Documents\GitHub\Coup-OnlineGame\Scripts\GameCoup\bin\Debug\netcoreapp3.1\GameCoup.runtimeconfig.dev.json
+C:\Users\user\Documents\GitHub\Coup-OnlineGame\Scripts\GameCoup\bin\Debug\netcoreapp3.1\GameCoup.dll
+C:\Users\user\Documents\GitHub\Coup-OnlineGame\Scripts\GameCoup\bin\Debug\netcoreapp3.1\GameCoup.pdb
+C:\Users\user\Documents\GitHub\Coup-OnlineGame\Scripts\GameCoup\obj\Debug\netcoreapp3.1\GameCoup.csprojAssemblyReference.cache
+C:\Users\user\Documents\GitHub\Coup-OnlineGame\Scripts\GameCoup\obj\Debug\netcoreapp3.1\GameCoup.AssemblyInfoInputs.cache
+C:\Users\user\Documents\GitHub\Coup-OnlineGame\Scripts\GameCoup\obj\Debug\netcoreapp3.1\GameCoup.AssemblyInfo.cs
+C:\Users\user\Documents\GitHub\Coup-OnlineGame\Scripts\GameCoup\obj\Debug\netcoreapp3.1\GameCoup.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\GitHub\Coup-OnlineGame\Scripts\GameCoup\obj\Debug\netcoreapp3.1\GameCoup.dll
+C:\Users\user\Documents\GitHub\Coup-OnlineGame\Scripts\GameCoup\obj\Debug\netcoreapp3.1\GameCoup.pdb
+C:\Users\user\Documents\GitHub\Coup-OnlineGame\Scripts\GameCoup\obj\Debug\netcoreapp3.1\GameCoup.genruntimeconfig.cache

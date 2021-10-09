@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\thiag\\Documents\\GitHub\\Coup-OnlineGame\\Scripts\\GameCoup\\GameCoup.csproj": {}
+    "C:\\Users\\user\\Documents\\GitHub\\Coup-OnlineGame\\Scripts\\GameCoup\\GameCoup.csproj": {}
   },
   "projects": {
-    "C:\\Users\\thiag\\Documents\\GitHub\\Coup-OnlineGame\\Scripts\\GameCoup\\GameCoup.csproj": {
+    "C:\\Users\\user\\Documents\\GitHub\\Coup-OnlineGame\\Scripts\\GameCoup\\GameCoup.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\thiag\\Documents\\GitHub\\Coup-OnlineGame\\Scripts\\GameCoup\\GameCoup.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Documents\\GitHub\\Coup-OnlineGame\\Scripts\\GameCoup\\GameCoup.csproj",
         "projectName": "GameCoup",
-        "projectPath": "C:\\Users\\thiag\\Documents\\GitHub\\Coup-OnlineGame\\Scripts\\GameCoup\\GameCoup.csproj",
-        "packagesPath": "C:\\Users\\thiag\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\thiag\\Documents\\GitHub\\Coup-OnlineGame\\Scripts\\GameCoup\\obj\\",
+        "projectPath": "C:\\Users\\user\\Documents\\GitHub\\Coup-OnlineGame\\Scripts\\GameCoup\\GameCoup.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Documents\\GitHub\\Coup-OnlineGame\\Scripts\\GameCoup\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\thiag\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"

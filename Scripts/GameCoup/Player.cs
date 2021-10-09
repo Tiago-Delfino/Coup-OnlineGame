@@ -10,6 +10,7 @@ namespace GameCoup
         public int Coins;
         public bool isAlive;
         public List<string> cards = new List<string>();
+        public List<string> revealedCards = new List<string>();
         //public bool Religion;
         public Player(string nickname)
         {
@@ -24,12 +25,17 @@ namespace GameCoup
         public void AddCoins(int quantity)
         {
             Coins += quantity;
-        } 
-
-        public void Income()
-        {
-            AddCoins(1);
         }
         
+        public void loseCard(string card)
+        {
+            cards.Remove(card);
+        }
+
+        public void placeTable(string card)
+        {
+            revealedCards.Add(card);
+        }
+
     }
 }
