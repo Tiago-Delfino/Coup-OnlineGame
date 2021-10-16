@@ -32,9 +32,19 @@ namespace GameCoup
             cards.Remove(card);
         }
 
+        public void UpdateLife()
+        {
+            if (revealedCards.Count == 2)
+            {
+                isAlive = false;
+                Console.WriteLine("O jogador " + Nickname + " está fora do jogo.");
+            }
+        }
+
         public void placeTable(string card)
         {
             revealedCards.Add(card);
+            UpdateLife();
         }
 
     }
